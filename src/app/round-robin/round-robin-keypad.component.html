@@ -1,0 +1,41 @@
+<div class="keypad-backdrop" (click)="onClose()">
+  <div class="keypad-panel" (click)="$event.stopPropagation()">
+    <div class="keypad-header">
+      <div>
+        <div class="keypad-title">Edit score</div>
+        <div class="keypad-subtitle">{{ teamAName }} vs {{ teamBName }}</div>
+      </div>
+      <button type="button" class="close-btn" (click)="onClose()">×</button>
+    </div>
+
+    <div class="score-row">
+      <button type="button" class="score-cell" [class.active]="activeSide === 'a'" (click)="setActive('a')">
+        <span>{{ displayScore(scoreA) }}</span>
+        <small>{{ teamAName }}</small>
+      </button>
+      <button type="button" class="score-cell" [class.active]="activeSide === 'b'" (click)="setActive('b')">
+        <span>{{ displayScore(scoreB) }}</span>
+        <small>{{ teamBName }}</small>
+      </button>
+    </div>
+
+    <div class="keypad-status">
+      Enter score for <strong>{{ activeSide === 'a' ? teamAName : teamBName }}</strong>
+    </div>
+
+    <p class="validation-error" *ngIf="validationError">{{ validationError }}</p>
+
+    <div class="keypad-grid">
+      <button type="button" class="key" *ngFor="let value of keys" (click)="pressKey(value)">
+        {{ value }}
+      </button>
+      <button type="button" class="key key-action" (click)="backspace()">⌫</button>
+      <button type="button" class="key key-zero" (click)="pressKey('0')">0</button>
+      <button type="button" class="key key-action" (click)="clearActive()">Clear</button>
+    </div>
+
+    <div class="keypad-actions">
+      <button type="button" class="confirm-btn" (click)="submitScore()">Save score</button>
+    </div>
+  </div>
+</div>

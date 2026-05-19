@@ -1,0 +1,102 @@
+﻿<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Dragon Wars</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="home-content">
+  <div class="page-bg"></div>
+
+  <div class="page-shell">
+    <section class="hero-card">
+      <div class="hero-topline">
+        <span class="hero-tag">Tournament Hub</span>
+        <span class="hero-status">LIVE</span>
+      </div>
+
+      <h1 class="hero-title">
+        <img src="/assets/dragon-wars-icon.svg" alt="Dragon Wars icon" class="hero-title-icon" />
+        <span>Dragon Wars Arena</span>
+      </h1>
+      <p>Track live tournaments, unlock battle passes, and climb the leaderboard with fast-paced arena matches.</p>
+
+      <div class="hero-actions">
+        <ion-button fill="outline" size="small" (click)="openRoundRobin()">Join Match</ion-button>
+        <ion-button fill="clear" size="small" (click)="promptInstall()">Install App</ion-button>
+        <!-- <ion-button fill="clear" size="small">View Bracket</ion-button> -->
+      </div>
+      <p class="install-hint" *ngIf="installMessage">{{ installMessage }}</p>
+
+      <div class="hero-stats">
+        <div>
+          <strong>18</strong>
+          <span>Players</span>
+        </div>
+        <div>
+          <strong>0</strong>
+          <span>Online Players</span>
+        </div>
+        <div>
+          <strong>0</strong>
+          <span>Played Games</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="qr-overlay" *ngIf="scanning">
+      <div class="qr-panel">
+        <h2>Scan Invitation QR</h2>
+        <p>Point your camera at the tournament invite QR code to join the match.</p>
+        <video #videoPreview class="qr-video" muted playsinline></video>
+        <p class="qr-error" *ngIf="scanError">{{ scanError }}</p>
+
+        <div class="qr-manual">
+          <label for="manualInvite">Or enter invite code manually</label>
+          <input
+            id="manualInvite"
+            type="text"
+            [value]="manualCode"
+            (input)="manualCode = $event.target.value"
+            placeholder="dragonwars://invite/ABCDEFGH"
+          />
+          <div class="qr-actions">
+            <ion-button fill="clear" size="small" (click)="useManualCode()">Use code</ion-button>
+            <ion-button fill="outline" size="small" (click)="useManualCode(testInviteCode)">Use test invite</ion-button>
+          </div>
+        </div>
+
+        <ion-button fill="outline" size="small" (click)="stopScan()">Cancel</ion-button>
+      </div>
+    </div>
+
+    <section class="match-panel">
+      <article class="panel-block">
+        <strong>Leader Board</strong>
+        <span>[TBD]</span>
+      </article>
+      <article class="panel-block">
+        <strong>Prize Pool</strong>
+        <span>120$ cash prize!</span>
+      </article>
+      <!-- <article class="panel-block">
+        <strong>Watch</strong>
+        <span>Live stream and highlights</span>
+      </article> -->
+    </section>
+
+    <section class="card-grid">
+      <!-- <article class="feature-card">
+        <h2>Live Bracket</h2>
+        <p>Follow every match in real time with tournament rankings and score updates.</p>
+      </article> -->
+      <!-- <article class="feature-card">
+        <h2>Rewards & Ranks</h2>
+        <p>Earn badges, level up your squad, and unlock game-inspired skins.</p>
+      </article> -->
+      <!-- <article class="feature-card">
+        <h2>Combat Mode</h2>
+        <p>Calibrate loadouts, deploy tactical drones, and dominate the arena.</p>
+      </article> -->
+    </section>
+  </div>
+</ion-content>

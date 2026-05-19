@@ -1,0 +1,117 @@
+.login-content {
+  --background: transparent;
+  position: relative;
+}
+
+.login-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 8% 18%, rgba(86, 220, 255, 0.2), transparent 18%),
+    radial-gradient(circle at 82% 10%, rgba(170, 97, 255, 0.16), transparent 18%),
+    linear-gradient(180deg, rgba(4, 7, 20, 0.96), rgba(10, 15, 30, 0.94));
+  pointer-events: none;
+}
+
+.login-shell {
+  position: relative;
+  z-index: 1;
+  width: min(520px, 100%);
+  margin: 4rem auto 2rem;
+  padding: 2rem;
+  background: rgba(7, 11, 24, 0.9);
+  border: 1px solid rgba(96, 234, 255, 0.18);
+  border-radius: 0;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+}
+
+.login-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(95, 234, 255, 0.2);
+  pointer-events: none;
+}
+
+.avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+ion-avatar.avatar-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid rgba(96, 234, 255, 0.3);
+  background: linear-gradient(135deg, rgba(32, 207, 255, 0.2), rgba(124, 95, 255, 0.18));
+  display: grid;
+  place-items: center;
+  color: #e7faff;
+}
+
+ion-avatar.avatar-icon img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  display: block;
+}
+
+.avatar-copy span {
+  display: block;
+  color: rgba(190, 214, 255, 0.75);
+  font-size: 0.9rem;
+}
+
+.avatar-copy strong {
+  display: block;
+  color: #f8fcff;
+  font-size: 1.35rem;
+}
+
+.login-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.login-field {
+  --background: rgba(15, 22, 44, 0.92);
+  --border-color: rgba(96, 234, 255, 0.2);
+  --border-radius: 0;
+  --placeholder-color: rgba(200, 220, 255, 0.4);
+  background: rgba(15, 22, 44, 0.92);
+  border: 1px solid rgba(96, 234, 255, 0.14);
+}
+
+.login-button {
+  --background: rgba(95, 234, 255, 0.16);
+  --border-color: rgba(95, 234, 255, 0.35);
+  --color: #e9fbff;
+  --border-radius: 0;
+  border: 1px solid rgba(95, 234, 255, 0.35);
+  box-shadow: 0 0 28px rgba(95, 234, 255, 0.16);
+}
+
+.login-button:hover {
+  --background: rgba(95, 234, 255, 0.24);
+}
+
+@media (max-width: 600px) {
+  .login-shell {
+    margin: 2.5rem 1rem;
+    padding: 1.6rem;
+  }
+
+  .avatar-row {
+    gap: 0.75rem;
+  }
+
+  .avatar-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,230 @@
+.round-robin-content {
+  --background: transparent;
+}
+
+.round-robin-content::part(native) {
+  background: transparent;
+}
+
+.page-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 14% 16%, rgba(88, 135, 255, 0.16), transparent 18%),
+    radial-gradient(circle at 84% 12%, rgba(94, 255, 226, 0.12), transparent 18%),
+    linear-gradient(180deg, rgba(4, 8, 22, 0.96), rgba(12, 18, 44, 0.86));
+}
+
+.content-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  padding: 1.8rem 1.2rem 2rem;
+}
+
+.rr-header-block {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.rr-header-block h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  line-height: 1.05;
+  color: #f8fbff;
+}
+
+.rr-tagline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  color: rgba(218, 241, 255, 0.86);
+  font-size: 0.92rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(118, 217, 255, 0.3);
+  background: rgba(10, 22, 40, 0.9);
+  color: #8ef3ff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.status-pill.live {
+  box-shadow: 0 0 0 1px rgba(70, 230, 255, 0.08);
+}
+
+.rr-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tab {
+  appearance: none;
+  border: 1px solid rgba(149, 203, 255, 0.18);
+  background: rgba(9, 15, 29, 0.9);
+  color: #cde8ff;
+  font-size: 0.9rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: rgba(75, 149, 255, 0.14);
+  border-color: rgba(76, 228, 255, 0.5);
+  color: #e9fbff;
+}
+
+.match-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.match-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+  background: rgba(9, 14, 28, 0.95);
+  border: 1px solid rgba(94, 247, 255, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+}
+
+.match-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(94, 225, 255, 0.12), transparent 40%);
+}
+
+.match-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  background: rgba(11, 19, 40, 0.94);
+  border-radius: 999px;
+  color: #8cf6ff;
+  font-size: 0.82rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(94, 247, 255, 0.12);
+}
+
+.match-card-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.team-block,
+.team-away {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.85rem 0.85rem 0.8rem;
+  background: rgba(7, 12, 24, 0.92);
+  border-radius: 14px;
+  border: 1px solid rgba(94, 247, 255, 0.1);
+}
+
+.team-heading {
+  color: #c0e8ff;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.team-player {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #e8f5ff;
+  font-size: 0.95rem;
+}
+
+.player-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.player-icon.blue {
+  background: #5ed4ff;
+}
+
+.player-icon.pink {
+  background: #ff7fdb;
+}
+
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 5.4rem;
+  min-height: 5.4rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(94, 247, 255, 0.18);
+  color: #f7fbff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.score-badge:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.score-badge span {
+  margin: 0 0.35rem;
+  opacity: 0.7;
+  font-size: 1rem;
+}
+
+.match-meta {
+  margin-top: 1rem;
+  color: rgba(183, 212, 255, 0.75);
+  font-size: 0.9rem;
+}
+
+.start-button {
+  margin-top: 1.5rem;
+  --border-color: rgba(102, 255, 206, 0.3);
+  color: #bffaff;
+}
+
+@media (max-width: 760px) {
+  .match-card-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .score-badge {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .content-shell {
+    padding: 1.5rem 0.95rem 1.6rem;
+  }
+
+  .rr-controls {
+    gap: 0.5rem;
+  }
+
+  .tab {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Round Robin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="round-robin-content">
+  <div class="page-bg"></div>
+
+  <div class="content-shell">
+    <section class="rr-header-block">
+      <div>
+        <h1>Tuesday Afternoon Ultimate Series</h1>
+        <div class="rr-tagline ion-margin-top">
+          <span class="status-pill live">Live updates</span>
+          <span>Round robin · 8 players in men doubles</span>
+        </div>
+      </div>
+      <div class="rr-controls">
+        <button class="tab active">Round 1</button>
+        <button class="tab">R2</button>
+        <button class="tab">R3</button>
+        <button class="tab">R4</button>
+      </div>
+    </section>
+
+    <section class="match-grid">
+      <article class="match-card" *ngFor="let match of matches; let i = index">
+        <div class="match-label">{{ match.label }}</div>
+        <div class="match-card-inner">
+          <div class="team-block">
+            <div class="team-heading">{{ match.homeName }}</div>
+            <div class="team-player">
+              <span class="player-icon blue"></span>
+              <span>{{ match.home[0] }}</span>
+            </div>
+            <div class="team-player">
+              <span class="player-icon pink"></span>
+              <span>{{ match.home[1] }}</span>
+            </div>
+          </div>
+
+          <div class="score-badge" role="button" tabindex="0" (click)="openKeypad(i)">
+            <strong>{{ match.scoreA }}</strong>
+            <span>:</span>
+            <strong>{{ match.scoreB }}</strong>
+          </div>
+
+          <div class="team-block team-away">
+            <div class="team-heading">{{ match.awayName }}</div>
+            <div class="team-player">
+              <span class="player-icon blue"></span>
+              <span>{{ match.away[0] }}</span>
+            </div>
+            <div class="team-player">
+              <span class="player-icon pink"></span>
+              <span>{{ match.away[1] }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="match-meta">{{ match.meta }}</div>
+      </article>
+    </section>
+
+    <ion-button expand="block" fill="outline" class="start-button" (click)="startMatch()">
+      Back to Arena
+    </ion-button>
+  </div>
+
+  <app-round-robin-keypad
+    *ngIf="keypadOpen"
+    [teamAName]="selectedKeypadTeamA"
+    [teamBName]="selectedKeypadTeamB"
+    [initialScoreA]="selectedKeypadScoreA"
+    [initialScoreB]="selectedKeypadScoreB"
+    (close)="closeKeypad()"
+    (submit)="updateScore($event)">
+  </app-round-robin-keypad>
+</ion-content>

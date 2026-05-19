@@ -1,0 +1,7 @@
+{
+  "name": "dragon-wars",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

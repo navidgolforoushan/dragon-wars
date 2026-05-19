@@ -1,0 +1,163 @@
+.keypad-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 7, 20, 0.72);
+  backdrop-filter: blur(12px);
+  display: grid;
+  place-items: center;
+  z-index: 50;
+}
+
+.keypad-panel {
+  width: min(520px, calc(100% - 32px));
+  background: rgba(7, 12, 26, 0.98);
+  border: 1px solid rgba(94, 247, 255, 0.16);
+  border-radius: 22px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+  padding: 1.25rem;
+}
+
+.keypad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.keypad-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f7fbff;
+}
+
+.keypad-subtitle {
+  margin-top: 0.25rem;
+  color: rgba(200, 232, 255, 0.82);
+  font-size: 0.92rem;
+}
+
+.close-btn {
+  appearance: none;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.score-cell {
+  appearance: none;
+  border: 1px solid rgba(94, 247, 255, 0.14);
+  background: rgba(8, 14, 28, 0.92);
+  border-radius: 16px;
+  padding: 1rem;
+  color: #e6f7ff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.score-cell.active {
+  border-color: rgba(102, 255, 206, 0.5);
+  box-shadow: 0 0 0 1px rgba(102, 255, 206, 0.12);
+}
+
+.score-cell span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.score-cell small {
+  display: block;
+  margin-top: 0.55rem;
+  color: rgba(185, 235, 255, 0.75);
+  font-size: 0.86rem;
+}
+
+.keypad-status {
+  color: rgba(196, 225, 255, 0.88);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.validation-error {
+  margin: 0 0 1rem;
+  color: #ff94a0;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.keypad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.key {
+  appearance: none;
+  border: none;
+  background: rgba(10, 18, 36, 0.96);
+  color: #ebf6ff;
+  min-height: 3.2rem;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.key:hover {
+  background: rgba(28, 44, 68, 0.96);
+}
+
+.key-zero {
+  grid-column: span 2;
+}
+
+.key-action {
+  background: rgba(98, 220, 255, 0.1);
+  color: #9edcff;
+}
+
+.keypad-actions {
+  display: flex;
+  justify-content: stretch;
+}
+
+.confirm-btn {
+  appearance: none;
+  border: 1px solid rgba(94, 247, 255, 0.3);
+  background: rgba(48, 122, 255, 0.16);
+  color: #e9fbff;
+  border-radius: 16px;
+  padding: 0.95rem 1.1rem;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .keypad-panel {
+    padding: 1rem;
+  }
+
+  .score-row {
+    grid-template-columns: 1fr;
+  }
+
+  .key-zero {
+    grid-column: auto;
+  }
+}

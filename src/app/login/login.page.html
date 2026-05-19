@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Sign In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="login-bg"></div>
+  <div class="login-shell">
+    <div class="avatar-row">
+      <ion-avatar class="avatar-icon">
+        <img src="/assets/anon-avatar.svg" alt="Anonymous user avatar" />
+      </ion-avatar>
+      <div class="avatar-copy">
+        <span>Welcome back</span>
+        <strong>Anonymous Player</strong>
+      </div>
+    </div>
+
+    <div class="login-panel">
+      <ion-item class="login-field">
+        <ion-label position="stacked">Username</ion-label>
+        <ion-input
+          placeholder="Enter your username"
+          [value]="username"
+          (ionChange)="username = $event.detail.value ?? ''"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item class="login-field">
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input
+          type="password"
+          placeholder="Enter your password"
+          [value]="password"
+          (ionChange)="password = $event.detail.value ?? ''"
+        ></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="login-button" (click)="login()">
+        Log In
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
